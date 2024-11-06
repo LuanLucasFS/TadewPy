@@ -35,7 +35,21 @@ Atualmente estou tentando arrumar estes problemas, mas sua solução por complet
 Alguns dos comandos criados até agora incluem:
 - Abrir
   - Youtube
+  - Google
 - Fechar
   - Youtube
+  - Google
   - Tadew
-  - Tadeu
+- Que horas são
+- Que dia é hoje
+
+
+## Update log: Versão 1.0.1
+
+### Atualizações
+- Adição dos comandos:
+  - Abrir Google
+  - Fechar Google
+  - Que horas são
+  - Que dia é hoje
+- Agora o texto é reproduzido em audio, ou seja, Tadew agora também é text-to-speech
