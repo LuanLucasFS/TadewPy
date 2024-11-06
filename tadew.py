@@ -1,5 +1,10 @@
 import speech_recognition as sr
-import voiceComm
+
+
+import voiceComm as vc
+import functions as func
+
+import time
 
 # Função para ouvir o microfone e reconhecer a fala
 def ouvir_microfone():
@@ -15,20 +20,16 @@ def ouvir_microfone():
             try:
                 frase = microfone.recognize_google(audio, language='pt-BR')
                 print("Você disse: " + frase)
-                
-                # Condição para encerrar o loop
-                if frase.lower() in ["fechar tadew", "fechar tadeu"]:
-                    print("Encerrando o programa...")
-                    break
-                
+                if(func.checar_frase(frase)): break
+
                 # Atualiza a frase em voiceComm
-                voiceComm.set_frase(frase)
+                vc.set_frase(frase)
                 
                 # Recupera os comandos com base na frase atual
-                commands = voiceComm.getCommands()
+                commands = vc.getCommands()
                 
                 # Exibe a frase e os comandos para depuração
-                print("Frase dividida:", voiceComm.frase)
+                print("Frase dividida:", vc.frase)
                 print("Comandos gerados:", commands)
                 
                 # Executa diretamente a função associada ao comando encontrado
@@ -41,6 +42,6 @@ def ouvir_microfone():
                     
             except sr.UnknownValueError:
                 print("Não entendi")
-
-# Inicia o loop de escuta
+            
 ouvir_microfone()
+

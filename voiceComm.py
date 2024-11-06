@@ -1,26 +1,30 @@
+import functions as func
+
 frase = []
 
 # Palavras comuns para ignorar
-ignore_words = ["por", "favor", "o", "a", "os", "as"]
+ignore_words = ["por", "favor", "o", "a","é", "os", "as", "que", "tadeu"]
 
 def set_frase(f):
     global frase
     # Divide a frase e remove as palavras comuns
     frase = [word for word in f.lower().split() if word not in ignore_words]
 
-# Função responsável por abrir o YouTube
-def abrir_yt():
-    print("Abrindo YouTube...")
-
-# Função responsável por fechar o YouTube
-def fechar_yt():
-    print("Fechando YouTube...")
-
 # Dicionário com comandos e funções associadas
 subcommands = {
     "youtube": {
-        "abrir": abrir_yt,
-        "fechar": fechar_yt
+        "abrir": func.abrir_yt,
+        "fechar": func.fechar_yt
+    },
+    "google": {
+        "abrir": func.abrir_google,
+        "fechar": func.fechar_google
+    },
+    "são": {
+        "horas": func.hora_atual
+    },
+    "hoje": {
+        "dia": func.data_atual
     }
 }
 
